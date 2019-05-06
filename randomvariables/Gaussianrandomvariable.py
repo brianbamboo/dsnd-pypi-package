@@ -18,6 +18,8 @@ class Gaussian(RandomVariable):
 	def generate(self, n=1):
 		if n < 1:
 			raise LessThanOneException('x must be greater than or equal to 1')
+		elif type(n) != int:
+			raise TypeError("n must be an integer value")
 		elif n == 1:
 			return np.random.normal(self.get_mean(), self.get_stdev())
 		else:
